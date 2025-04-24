@@ -1,0 +1,41 @@
+START GAME
+  SET currentRound to 1
+  CALL startGame()
+
+FUNCTION startGame()
+  CLEAR board
+  INCREASE number of cards based on currentRound
+  SHUFFLE cards
+  DISPLAY cards face down
+  RESET timer
+  START timer
+  SET matchCount to 0
+
+ON card click
+  IF firstCard not selected
+    STORE selected card as firstCard
+    FLIP card
+  ELSE
+    STORE as secondCard
+    FLIP card
+    IF firstCard matches secondCard
+      KEEP both cards flipped
+      INCREASE matchCount
+      IF all cards are matched
+        CALL endRound()
+    ELSE
+      WAIT for short delay
+      FLIP both cards back
+
+FUNCTION endRound()
+  STOP timer
+  DISPLAY message: "Round X Complete"
+  IF currentRound < 3
+    INCREMENT currentRound
+    CALL startGame()
+  ELSE
+    DISPLAY message: "Game Complete! Well done!"
+
+FUNCTION resetGame()
+  SET currentRound to 1
+  CALL startGame()

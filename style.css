@@ -25,4 +25,12 @@ body {
     box-shadow: 0 4px 6px rgba(0,0,0,0.2);
     transition: background-color 0.3s, transform 0.2s;
   }
+  .start-button:hover, .home-button:hover, #reset-button:hover {
+    background-color: #ff1493;
+    transform: scale(1.05);
+  }
   
+  .header {
+    margin-top: 20px;
+    position: relative;
+  }  

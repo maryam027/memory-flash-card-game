@@ -62,6 +62,7 @@ function shuffle(array) {
       setTimeout(unflipCards, 1000); // Flips the unmatched cards back to their hidden state, after 1 second.
     }
   }
+
   function resetFlip() {
     [firstCard, secondCard] = [null, null]; // reset first and second cards 
     lockBoard = false; // unlock the board 
@@ -90,3 +91,30 @@ function shuffle(array) {
       message.textContent = "Congratulations! You completed all rounds!";
     }
   }
+
+   
+  function startTimer() {
+    clearInterval(timer);
+    seconds = 0;
+    timer = setInterval(() => {
+      seconds++;
+      document.getElementById('timer').textContent = `Time: ${seconds}s`;
+    }, 1000);
+  }
+  
+  function resetBoard() {
+    matchCount = 0;
+    firstCard = null;
+    secondCard = null;
+    lockBoard = false;
+  }
+  
+  document.getElementById('reset-button').addEventListener('click', () => {
+    clearInterval(timer);
+    currentRound = 1;
+    document.getElementById('round').textContent = `Round: ${currentRound}`;
+    document.getElementById('message').textContent = "";
+    startGame();
+  });
+  
+  window.onload = startGame;

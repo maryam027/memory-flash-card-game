@@ -11,6 +11,7 @@ body {
 .container {
   padding-top: 100px;
 }
+
 .start-button, .home-button, #reset-button {
     display: inline-block;
     margin: 10px;
@@ -25,6 +26,7 @@ body {
     box-shadow: 0 4px 6px rgba(0,0,0,0.2);
     transition: background-color 0.3s, transform 0.2s;
   }
+
   .start-button:hover, .home-button:hover, #reset-button:hover {
     background-color: #ff1493;
     transform: scale(1.05);
@@ -34,6 +36,7 @@ body {
     margin-top: 20px;
     position: relative;
   }
+
   #timer {
     position: absolute;
     top: 10px;
@@ -55,4 +58,35 @@ body {
     justify-content: center;
     gap: 18px;
     margin: 40px auto;
+  }
+  .card {
+    width: 100px;
+    height: 100px;
+    background-color: #fff0f5;
+    border: 3px dashed #ff69b4;
+    border-radius: 15px;
+    font-size: 40px;
+    line-height: 100px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.4s, background-color 0.3s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .card.flipped {
+    background-color: #ffe4e1;
+    transform: rotateY(180deg);
+  }
+  
+  .buttons {
+    margin-top: 20px;
+  }
+  
+  
+  .message {
+    font-size: 26px;
+    margin-top: 25px;
+    color: #28a745;
+    font-weight: bold;
   }  

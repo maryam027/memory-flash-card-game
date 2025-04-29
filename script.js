@@ -11,3 +11,8 @@ let seconds = 0;
 function shuffle(array) {
     return array.sort(() => 0.5 - Math.random());
   }
+  function startGame() {
+    resetBoard();
+    generateCards();
+    startTimer();
+  }

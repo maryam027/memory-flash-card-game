@@ -34,3 +34,31 @@ function shuffle(array) {
       board.appendChild(card);
     });
   }
+  function flipCard() {
+    if (lockBoard) return;//stops the player from flipping another card
+    if (this.classList.contains('flipped')) return; //Prevents the same card from being clicked twice. If it's already flipped
+  
+    this.classList.add('flipped');
+    this.textContent = this.dataset.symbol;
+  
+    if (!firstCard) {
+      firstCard = this;
+      return;
+    }
+  
+    secondCard = this;
+    lockBoard = true;
+  
+    checkForMatch();//check whether the first and second cards are the same.
+  }
+  function checkForMatch() {
+    if (firstCard.dataset.symbol === secondCard.dataset.symbol) {
+      matchCount += 2;
+      resetFlip();//Resets firstCard, secondCard, and unlocks the board.
+      if (matchCount === cards.length) {
+        endRound();//Moves to the next round or finishes the game.
+      }
+    } else {
+      setTimeout(unflipCards, 1000); // Flips the unmatched cards back to their hidden state, after 1 second.
+    }
+  }

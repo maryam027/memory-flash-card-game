@@ -62,3 +62,31 @@ function shuffle(array) {
       setTimeout(unflipCards, 1000); // Flips the unmatched cards back to their hidden state, after 1 second.
     }
   }
+  function resetFlip() {
+    [firstCard, secondCard] = [null, null]; // reset first and second cards 
+    lockBoard = false; // unlock the board 
+  }
+  
+  function unflipCards() {
+    firstCard.classList.remove('flipped');
+    secondCard.classList.remove('flipped');
+    firstCard.textContent = '';
+    secondCard.textContent = '';
+    resetFlip();
+  }
+  
+  function endRound() {
+    clearInterval(timer);
+    const message = document.getElementById('message');
+    if (currentRound < 3) {
+      message.textContent = `Round ${currentRound} Complete! Moving to next round...`;
+      setTimeout(() => {
+        currentRound++;
+        document.getElementById('round').textContent = `Round: ${currentRound}`;
+        startGame();
+        message.textContent = "";
+      }, 2000);
+    } else {
+      message.textContent = "Congratulations! You completed all rounds!";
+    }
+  }

@@ -33,4 +33,26 @@ body {
   .header {
     margin-top: 20px;
     position: relative;
+  }
+  #timer {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 32px;
+    color: #d63384;
+  }
+  
+  #round {
+    margin-top: 60px;
+    font-size: 28px;
+    color: #ff4081;
+    font-weight: bold;
+  }
+  
+  .game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 110px);
+    justify-content: center;
+    gap: 18px;
+    margin: 40px auto;
   }  

@@ -1,4 +1,4 @@
-const emojis = ["🍎", "🍎", "🥝", "🥝", "🥥", "🥥", "🍇", "🍇","🍊", "🍊","🍋","🍋"];
+const emojis = ["🍎", "🍎", "🥝", "🥝", "🥥", "🥥", "🍇", "🍇"];
 let cards = [];
 let firstCard = null;
 let secondCard = null;
